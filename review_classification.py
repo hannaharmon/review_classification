@@ -33,7 +33,7 @@ def preprocess_and_vectorize(text):
 
 
 # Read the data
-df = pd.read_csv("reviews_expanded.csv")
+df = pd.read_csv("reviews.csv")
 
 # Preprocess and vectorize the text entries in the news column
 # Put the vector embeddings in a new column titled 'vector'
