@@ -20,10 +20,10 @@ def preprocess_and_vectorize(text):
     doc = nlp(text)    # create an nlp object out of text
 
     # Preprocess
-    # Take out stop words and punctuation, get the lemma of other words
+    # Take out punctuation, get the lemma of other words
     filtered_tokens = []    # create a list for the filtered tokens
     for token in doc:
-        if token.is_punct or token.is_stop:
+        if token.is_punct:
             continue
         filtered_tokens.append(token.lemma_)    # append the lemma of the word to the list
 
@@ -35,7 +35,7 @@ def preprocess_and_vectorize(text):
 # Read the data
 df = pd.read_csv("reviews.csv")
 
-# Preprocess and vectorize the text entries in the news column
+# Preprocess and vectorize the text entries in the reviews column
 # Put the vector embeddings in a new column titled 'vector'
 df['vector'] = df['review'].apply(lambda text: preprocess_and_vectorize(text))
 
